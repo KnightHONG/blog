@@ -17,8 +17,7 @@ window.$claudia = {
 
         function loaded(event) {
             var image = event.currentTarget
-            console.log(image.src.split("/"))
-            image.src = "/blog/images/"
+            
 
             image.ontransitionend = function () {
                 image.ontransitionend = null
@@ -34,6 +33,10 @@ window.$claudia = {
         }
 
         images.forEach(function (img) {
+            var array = img.src.split("/")
+            var end = array.slice(-1)
+            img.src = "/blog/images/" + end
+            // console.log(img.src)
             if (img.complete) {
                 return loaded({ currentTarget: img })
             }
