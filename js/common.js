@@ -13,9 +13,12 @@ window.$claudia = {
     },
     fadeInImage: function(imgs, imageLoadedCallback) {
         var images = imgs || document.querySelectorAll('.js-img-fadeIn')
+        console.log(images)
 
         function loaded(event) {
             var image = event.currentTarget
+            console.log(image.src.split("/"))
+            image.src = "/blog/images/"
 
             image.ontransitionend = function () {
                 image.ontransitionend = null
